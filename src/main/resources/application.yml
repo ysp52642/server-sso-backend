@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: employee-sso
+  datasource:
+    url: ${SSO_DB_URL:}
+    username: ${SSO_DB_USERNAME:}
+    password: ${SSO_DB_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${SSO_DB_POOL_SIZE:10}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jackson:
+    default-property-inclusion: non_null
+server:
+  error:
+    whitelabel:
+      enabled: false
+sso:
+  frontend-base-url: ${SSO_FRONTEND_BASE_URL:http://localhost:5173}
+  allowed-origins: ${SSO_ALLOWED_ORIGINS:http://localhost:5173}
+  cookie:
+    name: YSP_SSO_SESSION
+    secure: ${SSO_COOKIE_SECURE:false}
+    same-site: Lax
+  session:
+    idle-timeout: PT30M
+    absolute-timeout: PT8H
+  ticket:
+    ttl: PT30S
+  clients:
+    EMPLOYEE_PORTAL:
+      id: EMPLOYEE_PORTAL
+      secret: ${SSO_EMPLOYEE_PORTAL_SECRET:}
+      callback-url: ${SSO_EMPLOYEE_PORTAL_CALLBACK_URL:}
+

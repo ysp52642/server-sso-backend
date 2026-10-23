@@ -1,0 +1,1 @@
+cmd.exe /X /D /C "javac @C:/Users/yao80/Documents/Codex/2026-10-14/new-chat/employee-sso/backend/target/org.codehaus.plexus.compiler.javac.JavacCompiler4223527888474577261arguments"

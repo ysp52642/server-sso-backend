@@ -1,0 +1,4 @@
+sso:
+  cookie:
+    secure: true
+
